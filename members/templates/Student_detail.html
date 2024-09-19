@@ -1,0 +1,12 @@
+<h1>Student List</h1>
+
+{% if Student_lists %}
+
+<ol>
+  {% for student in Student_lists %}
+  <li>{{student.name}}</li>
+  {% endfor %}
+</ol>
+{% else %}
+<p>Student table is Empty!!</p>
+{% endif %}

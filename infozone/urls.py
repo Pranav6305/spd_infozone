@@ -19,6 +19,8 @@ from django.urls import path
 from members import views
 
 urlpatterns = [
-    path('', views.home_view, name='home'),
-    path('batch/', views.batch_view, name='batch'),
+    path('', views.home_view, name='home'),        # Root URL
+    path('batch/', views.batch_view, name='batch'),  # Batch view
+    path('student/', views.student_view, name='student'),  # Student view
 ]
+

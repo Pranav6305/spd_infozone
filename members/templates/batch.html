@@ -7,10 +7,9 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
+        background-color: #28758a;
         margin: 0;
         padding: 0;
-        background-color: #28758a;
       }
       .container {
         width: 400px;
@@ -123,45 +122,68 @@
         </div>
       </div>
 
-      <div class="section" style="margin-bottom: 15px">
-        <h4>Batch</h4>
-        <select style="padding: 5px; border-radius: 5px; margin-top: 7px">
-          <option>select</option>
-          <option>2022-2026</option>
-          <option>2023-2027</option>
-          <option>2024-2028</option>
-          <option>2025-2029</option>
-        </select>
-      </div>
+      <form onsubmit="return validateFields();">
+        <div class="section">
+          <h4>Batch</h4>
+          <select
+            id="batch"
+            style="padding: 5px; border-radius: 5px; margin-top: 7px"
+          >
+            <option value="">select</option>
+            <option value="2022-2026">2022-2026</option>
+            <option value="2023-2027">2023-2027</option>
+            <option value="2024-2028">2024-2028</option>
+            <option value="2025-2029">2025-2029</option>
+          </select>
+        </div>
 
-      <div class="section">
-        <h4>Department</h4>
-        <select style="padding: 5px; border-radius: 5px; margin-top: 5px">
-          <option>select</option>
-          <option>BE CSE</option>
-          <option>BTECH IT</option>
-          <option>BE ECE</option>
-          <option>BE EEE</option>
-          <option>BE MECH</option>
-          <option>BE PROD</option>
-          <option>BE CIVIL</option>
-          <option>BE RAE</option>
-          <option>BE I&C</option>
-          <option>BTECH FT</option>
-          <option>BTECH TT</option>
-          <option>BE PROD SW</option>
-          <option>BE EEE SW</option>
-          <option>BE MECH SW</option>
-        </select>
-      </div>
+        <div class="section">
+          <h4>Department</h4>
+          <select
+            id="department"
+            style="padding: 5px; border-radius: 5px; margin-top: 5px"
+          >
+            <option value="">select</option>
+            <option value="BE CSE">BE CSE</option>
+            <option value="BTECH IT">BTECH IT</option>
+            <option value="BE ECE">BE ECE</option>
+            <option value="BE EEE">BE EEE</option>
+            <option value="BE MECH">BE MECH</option>
+            <option value="BE PROD">BE PROD</option>
+            <option value="BE CIVIL">BE CIVIL</option>
+            <option value="BE RAE">BE RAE</option>
+            <option value="BE I&C">BE I&C</option>
+            <option value="BTECH FT">BTECH FT</option>
+            <option value="BTECH TT">BTECH TT</option>
+            <option value="BE PROD SW">BE PROD SW</option>
+            <option value="BE EEE SW">BE EEE SW</option>
+            <option value="BE MECH SW">BE MECH SW</option>
+          </select>
+        </div>
 
-      <h4>Roll Number</h4>
-      <div class="roll-search">
-        <input type="text" placeholder="Search by Roll No." />
-        <button style="margin-left: 10px; border: 1px solid black">
-          &#128269;
-        </button>
-      </div>
+        <div class="section">
+          <h4>Roll Number</h4>
+          <input type="text" id="rollno" placeholder="Search by Roll No." />
+          <button type="submit"> &#128269;</button>
+        </div>
+      </form>
+
+      <script>
+        function validateFields() {
+          const batch = document.querySelector("#batch").value;
+          const department = document.querySelector("#department").value;
+          const rollno = document.querySelector("#rollno").value;
+
+          if (batch === "" || department === "" || rollno === "") {
+            alert("Please fill all fields.");
+            return false;
+          } else {
+            window.location.href = "{% url 'student' %}";
+          }
+
+          return false;
+        }
+      </script>
     </div>
   </body>
 </html>
