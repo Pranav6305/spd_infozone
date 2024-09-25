@@ -1,12 +1,9 @@
-<h1>Student List</h1>
+<!-- templates/student_detail.html -->
 
-{% if Student_lists %}
+<h1>Details for {{ student.name }}</h1>
+<p>Roll No: {{ student.roll_no }}</p>
+<p>Department: {{ student.department }}</p>
+<p>Address: {{ student.address }}</p>
+<p>Contact No: {{ student.contact_no }}</p>
 
-<ol>
-  {% for student in Student_lists %}
-  <li>{{student.name}}</li>
-  {% endfor %}
-</ol>
-{% else %}
-<p>Student table is Empty!!</p>
-{% endif %}
+<a href="{% url 'student_list' %}">Back to Student List</a>

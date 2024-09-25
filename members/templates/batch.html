@@ -122,7 +122,7 @@
         </div>
       </div>
 
-      <form onsubmit="return validateFields();">
+      <!-- <form onsubmit="return validateFields();">
         <div class="section">
           <h4>Batch</h4>
           <select
@@ -166,7 +166,46 @@
           <input type="text" id="rollno" placeholder="Search by Roll No." />
           <button type="submit"> &#128269;</button>
         </div>
-      </form>
+      </form> -->
+      <form method="GET" action="{% url 'student_list' %}">
+        <div class="section">
+          <h4>Batch</h4>
+          <select id="batch" name="batch" style="padding: 5px; border-radius: 5px; margin-top: 7px">
+            <option value="">select</option>
+            <option value="2022-2026">2022-2026</option>
+            <option value="2023-2027">2023-2027</option>
+            <option value="2024-2028">2024-2028</option>
+            <option value="2025-2029">2025-2029</option>
+          </select>
+        </div>
+      
+        <div class="section">
+          <h4>Department</h4>
+          <select id="department" name="department" style="padding: 5px; border-radius: 5px; margin-top: 5px">
+            <option value="">select</option>
+            <option value="BE CSE">BE CSE</option>
+            <option value="BTECH IT">BTECH IT</option>
+            <option value="BE ECE">BE ECE</option>
+            <option value="BE EEE">BE EEE</option>
+            <option value="BE MECH">BE MECH</option>
+            <option value="BE PROD">BE PROD</option>
+            <option value="BE CIVIL">BE CIVIL</option>
+            <option value="BE RAE">BE RAE</option>
+            <option value="BE I&C">BE I&C</option>
+            <option value="BTECH FT">BTECH FT</option>
+            <option value="BTECH TT">BTECH TT</option>
+            <option value="BE PROD SW">BE PROD SW</option>
+            <option value="BE EEE SW">BE EEE SW</option>
+            <option value="BE MECH SW">BE MECH SW</option>
+          </select>
+        </div>
+      
+        <div class="section">
+          <h4>Roll Number</h4>
+          <input type="text" id="rollno" name="rollno" placeholder="Search by Roll No." />
+          <button type="submit"> &#128269;</button>
+        </div>
+      </form>      
 
       <script>
         function validateFields() {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student List</title>
+  </head>
+  <body>
+    <h1>Student List</h1>
+    <ul>
+      {% for student in students %}
+      <li>
+        <a href="{% url 'student_detail' student.roll_no %}">
+          <!-- {{ student.roll_no }} -  -->
+          {{ student.name }}
+        <!-- </a> - {{ student.department }} - {{ student.address }} - {{ student.contact_no }} -->
+      </li>
+      {% empty %}
+      <li>No students found.</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

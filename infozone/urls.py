@@ -17,10 +17,13 @@ Including another URLconf
 # infozone/urls.py
 from django.urls import path
 from members import views
-
+from django.contrib import admin
+from django.urls import path, include
 urlpatterns = [
     path('', views.home_view, name='home'),        # Root URL
     path('batch/', views.batch_view, name='batch'),  # Batch view
-    path('student/', views.student_view, name='student'),  # Student view
+    path('student/', views.student_list_view, name='student'),
+    path('admin/', admin.site.urls),
+    path('', include('members.urls')),
 ]
 
