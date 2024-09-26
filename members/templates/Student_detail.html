@@ -16,9 +16,9 @@
 
       .container {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 90vh;
+        justify-content: center; 
+        align-items: flex-start; /* Align items to top */
+        min-height: 90vh; 
       }
 
       .card {
@@ -26,8 +26,9 @@
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        width: 400px;
-        margin-right:550px;
+        width: 500px;
+        margin-top: 20px; /* Add some top margin to the card */
+        margin-left: 100px;
       }
 
       .card-header {
@@ -94,11 +95,10 @@
 
       .back-button {
         display: block;
-        margin: 20px auto;
-        margin-top: 590px;
-        margin-right: 30px;
-        padding: 10px 20px;
-        width:200px;
+        margin-top: 590px; /* Adjust top margin as needed */
+        margin-left: 25px; /* Position to the right of the card */
+        padding: 10px 30px;
+        width: 200px;
         background-color: #3498db;
         color: #fff;
         border: none;
@@ -106,6 +106,7 @@
         font-size: 16px;
         cursor: pointer;
         text-decoration: none;
+        text-align: center; /* Center text within the button */
       }
       .header {
       background-color:#2e5975; /* Adjust as needed */
@@ -131,9 +132,6 @@
       <h1 style="color: #f4f4f4;">PSG College of Technology</h1>
     </div>
     <div class="container">
-      <a href="#" onclick="history.back()" class="back-button"
-      ><center>Back to Student List</center></i></a
-    >
       <div class="card">
         <div class="card-header">
           <h2>Student Information</h2>
@@ -173,7 +171,9 @@
           </div>
         </div>
       </div>
-      
+      <a href="#" onclick="history.back()" class="back-button"
+      ><center>Back to Student List</center></i></a
+    >
     </div>
     
   </body>
