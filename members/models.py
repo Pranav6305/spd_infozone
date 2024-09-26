@@ -20,5 +20,5 @@ class Student(models.Model):
 #     contact_no = models.CharField(max_length=15)
 
     class Meta:
-        db_table = 'members_student'  # Ensure this points to the correct table name in MySQL
+        db_table = 'members_student'  
 
