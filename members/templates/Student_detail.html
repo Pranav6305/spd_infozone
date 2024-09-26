@@ -1,9 +1,180 @@
-<!-- templates/student_detail.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Detail</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-<h1>Details for {{ student.name }}</h1>
-<p>Roll No: {{ student.roll_no }}</p>
-<p>Department: {{ student.department }}</p>
-<p>Address: {{ student.address }}</p>
-<p>Contact No: {{ student.contact_no }}</p>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+      }
 
-<a href="{% url 'student_list' %}">Back to Student List</a>
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 400px;
+        margin-right:550px;
+      }
+
+      .card-header {
+        background-color: #2e5975;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .card-body {
+        padding: 25px;
+        min-height: 40vh;
+      }
+
+      .card-body img {
+        display: block;
+        margin: 0 auto 20px;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .card-body table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .card-body th,
+      .card-body td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+
+      .card-body th {
+        background-color: #f0f0f0;
+      }
+
+      .card-body p {
+        margin: 5px 0;
+        font-size: 20px;
+      }
+
+      .card-body strong {
+        font-weight: bold;
+      }
+
+      .social-links {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .social-links a {
+        margin: 0 10px;
+        font-size: 24px;
+        color: #337ab7;
+        transition: color 0.2s ease;
+      }
+
+      .social-links a:hover {
+        color: #23527c;
+      }
+
+      .back-button {
+        display: block;
+        margin: 20px auto;
+        margin-top: 590px;
+        margin-right: 30px;
+        padding: 10px 20px;
+        width:200px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .header {
+      background-color:#2e5975; /* Adjust as needed */
+      padding: 0px;
+      text-align: center;
+    }
+    .header img {
+      max-width: 50px; /* Adjust the size of the logo */
+      margin-left: -980px; /* Adjust margin as needed */
+      vertical-align: middle;
+      /* width:50px; */
+      margin-bottom: 10px;;
+    }
+    .header h1 {
+      display: inline-block;
+      margin-left: 30px; /* Adjust spacing between logo and text */
+    }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU" alt="PSG College of Technology Logo">
+      <h1 style="color: #f4f4f4;">PSG College of Technology</h1>
+    </div>
+    <div class="container">
+      <a href="#" onclick="history.back()" class="back-button"
+      ><center>Back to Student List</center></i></a
+    >
+      <div class="card">
+        <div class="card-header">
+          <h2>Student Information</h2>
+        </div>
+        <div class="card-body">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGcrZqLbIyWyG2ErTvRLGjuHgk4VzFrOfnwI6ZAZ6yEwPs-reX82zTyMt50rgmlU-ke28&usqp=CAU" alt="Profile Picture" />
+          <table>
+            <tr>
+              <th>Details</th>
+              <th>Information</th>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>{{ student.name }}</td>
+            </tr>
+            <tr>
+              <td>Roll No</td>
+              <td>{{ student.roll_no }}</td>
+            </tr>
+            <tr>
+              <td>Department</td>
+              <td>{{ student.department }}</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>{{ student.address }}</td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td>{{ student.contact_no }}</td>
+            </tr>
+          </table>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </body>
+</html>

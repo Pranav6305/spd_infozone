@@ -4,130 +4,182 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: #28758a;
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+
       .container {
-        width: 400px;
-        margin-top: 100px;
-        border-left: 10px solid #3f3f88;
-        max-width: 400px;
-        margin: 45px auto;
-        padding: 20px;
-        border: 15px solid #54288a;
-        border-radius: 10px;
+        width: 80%;
+        max-width: 800px;
+        background-color: #fff;
+        border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: white;
-      }
-      .header {
+        padding: 20px;
         text-align: center;
-        border-bottom: 1px solid black;
-        padding-bottom: 15px;
-        margin-left: 30px;
+      }
+
+      .header {
+        background-color: #353535;
+        color: #fff;
+        padding: 25px 30px; /* Increased padding for better visibility */
+        border-radius: 10px 8px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      .header img {
+        height: 70px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .admin-profile {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the profile */
         margin-bottom: 20px;
       }
-      .header img {
+
+      .admin-profile img {
         width: 60px;
-      }
-      .header h1 {
-        font-size: 18px;
-        margin: 10px 0;
-      }
-      .profile {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        border: 1px solid black;
-        border-radius: 15px;
-        margin-bottom: 10px;
-        margin-right: 250px;
-      }
-      .profile img {
-        width: 50px;
-        height: 50px;
+        height: 60px;
         border-radius: 50%;
-        background-color: #ddd;
+        margin-right: 15px;
       }
-      .profile-info {
-        flex-grow: 1;
-      }
-      .profile-info h3 {
+
+      .admin-profile h3 {
         margin: 0;
+        font-size: 1.2rem;
       }
-      .section {
-        margin-bottom: 15px;
+
+      .search-section {
+        margin-bottom: 20px;
       }
-      .section h4 {
-        margin: 0;
-        font-size: 16px;
+
+      .search-section h4 {
+        margin: 0 0 10px 0;
+        font-size: medium;
       }
-      .roll-search {
-        display: flex;
-        align-items: center;
-        margin: 20px 0;
+
+      select,
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 16px; /* Increased font size for better readability */
       }
-      .roll-search input[type="text"] {
-        width: calc(100% - 40px);
-        padding: 5px;
-        font-size: 16px;
-      }
-      .roll-search button {
-        width: 40px;
-        background-color: #ddd;
+
+      button[type="submit"] {
+        background-color: #54288a;
+        color: white;
+        padding: 10px 20px;
         border: none;
+        border-radius: 20px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px; /* Increased font size for better readability */
       }
-      .roll-numbers {
-        list-style: none;
-        padding: 0;
+
+      button[type="submit"]:hover {
+        background-color: #e9e9f0;
       }
-      .roll-numbers li {
-        background-color: #f0f0f0;
-        padding: 8px;
-        margin: 5px 0;
-        text-align: center;
-        font-size: 16px;
+
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .section h4 {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .section select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 16px; /* Increased font size for better readability */
+      }
+
+      .section input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 16px; /* Increased font size for better readability */
+      }
+
+      .section button[type="submit"] {
+        background-color: #54288a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px; /* Increased font size for better readability */
+      }
+
+      .section button[type="submit"]:hover {
+        background-color: #e9e9f0;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div
-        class="header"
-        style="display: flex; justify-content: space-around; margin-left: -30px"
-      >
+      <div class="header">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
           alt="PSG College of Technology Logo"
+          style="margin-left: -150px"
         />
-        <h1 style="margin-right: 50px">PSG College of Technology</h1>
+        <h1>PSG College of Technology</h1>
       </div>
 
       <center>
-        <h1 style="font-size: medium; padding: 10px">WELCOME TO INFOZONE</h1>
+        <h2 style="margin-bottom: 20px">Welcome to InfoZone</h2>
       </center>
 
-      <div class="profile">
+      <div class="admin-profile">
         <img
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+          src="https://fontawesomeicons.com/lib/svg/person-sharp.svg"
           alt="Admin Profile"
-          style="margin-left: 2px; margin-bottom: 5px"
         />
-        <div class="profile-info" style="margin-bottom: 5px">
+        <div class="profile-info">
           <h3>Admin</h3>
         </div>
       </div>
 
-      <!-- <form onsubmit="return validateFields();">
+      <form method="GET" action="{% url 'student_list' %}">
         <div class="section">
           <h4>Batch</h4>
           <select
             id="batch"
-            style="padding: 5px; border-radius: 5px; margin-top: 7px"
+            name="batch"
+            style="padding: 10px; border-radius: 5px; margin-top: 7px"
           >
             <option value="">select</option>
             <option value="2022-2026">2022-2026</option>
@@ -141,7 +193,8 @@
           <h4>Department</h4>
           <select
             id="department"
-            style="padding: 5px; border-radius: 5px; margin-top: 5px"
+            name="department"
+            style="padding: 10px; border-radius: 5px; margin-top: 5px"
           >
             <option value="">select</option>
             <option value="BE CSE">BE CSE</option>
@@ -163,66 +216,15 @@
 
         <div class="section">
           <h4>Roll Number</h4>
-          <input type="text" id="rollno" placeholder="Search by Roll No." />
-          <button type="submit"> &#128269;</button>
+          <input
+            type="text"
+            id="rollno"
+            name="rollno"
+            placeholder="Search by Roll No."
+          />
+          <button type="submit">&#128269;</button>
         </div>
-      </form> -->
-      <form method="GET" action="{% url 'student_list' %}">
-        <div class="section">
-          <h4>Batch</h4>
-          <select id="batch" name="batch" style="padding: 5px; border-radius: 5px; margin-top: 7px">
-            <option value="">select</option>
-            <option value="2022-2026">2022-2026</option>
-            <option value="2023-2027">2023-2027</option>
-            <option value="2024-2028">2024-2028</option>
-            <option value="2025-2029">2025-2029</option>
-          </select>
-        </div>
-      
-        <div class="section">
-          <h4>Department</h4>
-          <select id="department" name="department" style="padding: 5px; border-radius: 5px; margin-top: 5px">
-            <option value="">select</option>
-            <option value="BE CSE">BE CSE</option>
-            <option value="BTECH IT">BTECH IT</option>
-            <option value="BE ECE">BE ECE</option>
-            <option value="BE EEE">BE EEE</option>
-            <option value="BE MECH">BE MECH</option>
-            <option value="BE PROD">BE PROD</option>
-            <option value="BE CIVIL">BE CIVIL</option>
-            <option value="BE RAE">BE RAE</option>
-            <option value="BE I&C">BE I&C</option>
-            <option value="BTECH FT">BTECH FT</option>
-            <option value="BTECH TT">BTECH TT</option>
-            <option value="BE PROD SW">BE PROD SW</option>
-            <option value="BE EEE SW">BE EEE SW</option>
-            <option value="BE MECH SW">BE MECH SW</option>
-          </select>
-        </div>
-      
-        <div class="section">
-          <h4>Roll Number</h4>
-          <input type="text" id="rollno" name="rollno" placeholder="Search by Roll No." />
-          <button type="submit"> &#128269;</button>
-        </div>
-      </form>      
-
-      <script>
-        function validateFields() {
-          const batch = document.querySelector("#batch").value;
-          const department = document.querySelector("#department").value;
-          const rollno = document.querySelector("#rollno").value;
-
-          if (batch === "" || department === "" || rollno === "") {
-            alert("Please fill all fields.");
-            return false;
-          } else {
-            window.location.href = "{% url 'student' %}";
-          }
-
-          return false;
-        }
-      </script>
+      </form>
     </div>
   </body>
 </html>
