@@ -7,9 +7,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <style>
-       a {
-         text-decoration: none;
-       }
+      a {
+        text-decoration: none;
+      }
       /* Styling for the boxes */
       .student-box {
         border: 1px solid #ccc;
@@ -27,11 +27,17 @@
         margin-right: 15px;
         font-size: 20px;
       }
+      .parent-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 25vh; 
+}
       .back-button {
         display: block;
-        margin: 20px auto;
+        margin: 20px;
         padding: 10px 20px;
-        width:1300px;
+        width: 150px;
         background-color: #3498db;
         color: #fff;
         border: none;
@@ -40,10 +46,28 @@
         cursor: pointer;
         text-decoration: none;
       }
+      .search-form {
+        margin-bottom: 20px;
+      }
+      .search-form input {
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .search-form button {
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <h1>Student List</h1>
+
     <div class="student-list">
       {% for student in students %}
       <a href="{% url 'student_detail' student.roll_no %}">
@@ -56,8 +80,12 @@
       <p>No students found.</p>
       {% endfor %}
     </div>
-    <a href="#" onclick="history.back()" class="back-button" style="margin-left: 0px;"
-      >Back to Search Page</a
-    >
+    <center>
+      <div class="parent-container">
+        <a href="#" onclick="history.back()" class="back-button" style="margin-left: 0px;">
+          Back to Search Page
+        </a>
+    </div>    
+    </center>
   </body>
 </html>

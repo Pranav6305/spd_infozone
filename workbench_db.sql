@@ -308,6 +308,7 @@ CREATE TABLE `members_student` (
   `department` varchar(50) NOT NULL,
   `address` text,
   `contact_no` varchar(15) DEFAULT NULL,
+  `batch` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`roll_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -318,7 +319,7 @@ CREATE TABLE `members_student` (
 
 LOCK TABLES `members_student` WRITE;
 /*!40000 ALTER TABLE `members_student` DISABLE KEYS */;
-INSERT INTO `members_student` VALUES ('22z207','Ajay S','BE CSE','Kerala','123456\r'),('22z221','Gokul G','BE CSE','Cuddalore','+91 6369918149'),('22z222','Hariharan D','BE CSE','Coimbatore','+91 9500990965'),('22z223','Harish K','BE CSE','Nagercoil','+91 6369950903'),('22z239','Mohammed Muzammil J','BE CSE','Trichy','+91 8807509671'),('22z245','Pranavji K','BE CSE','Chennai','+91 9150494945'),('22z247','Pratish Mithra J','BE CSE','Thoothukudi','+91 9159557666'),('22z249','Prithvin K C','BE CSE','Chennai','+91 8072566972');
+INSERT INTO `members_student` VALUES ('22z221','Gokul G','BE CSE','Cuddalore','+91 6369918149','2022-2026'),('22z222','Hariharan D','BE CSE','Coimbatore','+91 9500990965','2022-2026'),('22z223','Harish K','BE CSE','Nagercoil','+91 6369950903','2022-2026'),('22z239','Mohammed Muzammil J','BE CSE','Trichy','+91 8807509671','2022-2026'),('22z245','Pranavji K','BE CSE','Chennai','+91 9150494945','2022-2026'),('22z247','Pratish Mithra J','BE CSE','Thoothukudi','+91 9159557666','2022-2026'),('22z249','Prithvin K C','BE CSE','Chennai','+91 8072566972','2022-2026');
 /*!40000 ALTER TABLE `members_student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-27 20:27:34
+-- Dump completed on 2024-09-30 19:01:19
