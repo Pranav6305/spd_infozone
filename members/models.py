@@ -8,7 +8,10 @@ class Student(models.Model):
     department = models.CharField(max_length=100, default="Unknown Department")  # Add a default value here
     address = models.CharField(max_length=255, default="No address provided")  # Keep your previous default
     contact_no = models.CharField(max_length=20, null=True, blank=True)
-    batch = models.CharField(max_length=255)
+    batch = models.CharField(max_length=255,default='2022-2026')
+    insta_id = models.CharField(max_length=255,default='No address provided')
+    linkedin_id = models.CharField(max_length=255,default='No address provided')
+    github_id = models.CharField(max_length=255,default='No address provided')
 
 #     def __str__(self):
 #         return self.name

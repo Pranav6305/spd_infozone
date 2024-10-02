@@ -16,9 +16,9 @@
 
       .container {
         display: flex;
-        justify-content: center; 
-        align-items: flex-start; 
-        min-height: 90vh; 
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 90vh;
       }
 
       .card {
@@ -27,7 +27,7 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         width: 500px;
-        margin-top: 20px; 
+        margin-top: 20px;
         margin-left: 100px;
       }
 
@@ -96,7 +96,7 @@
       .back-button {
         display: block;
         margin-top: 590px; /* Adjusted for better placement */
-        margin-left: 25px; 
+        margin-left: 25px;
         padding: 10px 30px;
         width: 200px;
         background-color: #3498db;
@@ -106,11 +106,11 @@
         font-size: 16px;
         cursor: pointer;
         text-decoration: none;
-        text-align: center; 
+        text-align: center;
       }
 
       .header {
-        background-color: #2e5975; 
+        background-color: #2e5975;
         padding: 0px;
         text-align: center;
       }
@@ -121,14 +121,17 @@
       }
       .header h1 {
         display: inline-block;
-        margin-left: 30px; 
+        margin-left: 30px;
         color: #f4f4f4; /* Adjusted for better visibility */
       }
     </style>
   </head>
   <body>
     <div class="header">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU" alt="PSG College of Technology Logo">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
+        alt="PSG College of Technology Logo"
+      />
       <h1>PSG College of Technology</h1>
     </div>
     <div class="container">
@@ -137,7 +140,10 @@
           <h2>Student Information</h2>
         </div>
         <div class="card-body">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGcrZqLbIyWyG2ErTvRLGjuHgk4VzFrOfnwI6ZAZ6yEwPs-reX82zTyMt50rgmlU-ke28&usqp=CAU" alt="Profile Picture" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGcrZqLbIyWyG2ErTvRLGjuHgk4VzFrOfnwI6ZAZ6yEwPs-reX82zTyMt50rgmlU-ke28&usqp=CAU"
+            alt="Profile Picture"
+          />
           <table>
             <tr>
               <th>Details</th>
@@ -164,14 +170,33 @@
               <td>{{ student.contact_no }}</td>
             </tr>
           </table>
+          <!-- <div class="social-links">
+            <a href="{{ student.linkedin_id }}" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="{{ student.insta_id }}" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="{{ student.github_id }}" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div> -->
           <div class="social-links">
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-          </div>
+            {% if student.linkedin_id %}
+                <a href="{{ student.linkedin_id }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if student.insta_id %}
+                <a href="{{ student.insta_id }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {% endif %}
+            {% if student.github_id %}
+                <a href="{{ student.github_id }}" target="_blank"><i class="fab fa-github"></i></a>
+            {% endif %}
+        </div>
         </div>
       </div>
-      <a href="#" onclick="history.back()" class="back-button">Back to Student List</a>
+      <a href="#" onclick="history.back()" class="back-button"
+        >Back to Student List</a
+      >
     </div>
   </body>
 </html>
