@@ -257,7 +257,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,7 +266,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2024-09-18 05:12:01.106211'),(2,'auth','0001_initial','2024-09-18 05:12:01.860356'),(3,'admin','0001_initial','2024-09-18 05:12:02.053018'),(4,'admin','0002_logentry_remove_auto_add','2024-09-18 05:12:02.061907'),(5,'admin','0003_logentry_add_action_flag_choices','2024-09-18 05:12:02.071943'),(6,'contenttypes','0002_remove_content_type_name','2024-09-18 05:12:02.182154'),(7,'auth','0002_alter_permission_name_max_length','2024-09-18 05:12:02.270304'),(8,'auth','0003_alter_user_email_max_length','2024-09-18 05:12:02.326535'),(9,'auth','0004_alter_user_username_opts','2024-09-18 05:12:02.334533'),(10,'auth','0005_alter_user_last_login_null','2024-09-18 05:12:02.409904'),(11,'auth','0006_require_contenttypes_0002','2024-09-18 05:12:02.414940'),(12,'auth','0007_alter_validators_add_error_messages','2024-09-18 05:12:02.422971'),(13,'auth','0008_alter_user_username_max_length','2024-09-18 05:12:02.535255'),(14,'auth','0009_alter_user_last_name_max_length','2024-09-18 05:12:02.616360'),(15,'auth','0010_alter_group_name_max_length','2024-09-18 05:12:02.640386'),(16,'auth','0011_update_proxy_permissions','2024-09-18 05:12:02.648744'),(17,'auth','0012_alter_user_first_name_max_length','2024-09-18 05:12:02.720704'),(18,'sessions','0001_initial','2024-09-18 05:12:02.752975'),(19,'members','0001_initial','2024-09-19 10:43:15.993275'),(20,'members','0002_remove_student_roll_number_student_address_and_more','2024-09-25 16:58:17.189483'),(21,'members','0003_alter_student_roll_no','2024-09-25 18:04:39.848137'),(23,'members','0004_remove_student_id_alter_student_roll_no_and_more','2024-09-26 05:39:54.655067');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2024-09-18 05:12:01.106211'),(2,'auth','0001_initial','2024-09-18 05:12:01.860356'),(3,'admin','0001_initial','2024-09-18 05:12:02.053018'),(4,'admin','0002_logentry_remove_auto_add','2024-09-18 05:12:02.061907'),(5,'admin','0003_logentry_add_action_flag_choices','2024-09-18 05:12:02.071943'),(6,'contenttypes','0002_remove_content_type_name','2024-09-18 05:12:02.182154'),(7,'auth','0002_alter_permission_name_max_length','2024-09-18 05:12:02.270304'),(8,'auth','0003_alter_user_email_max_length','2024-09-18 05:12:02.326535'),(9,'auth','0004_alter_user_username_opts','2024-09-18 05:12:02.334533'),(10,'auth','0005_alter_user_last_login_null','2024-09-18 05:12:02.409904'),(11,'auth','0006_require_contenttypes_0002','2024-09-18 05:12:02.414940'),(12,'auth','0007_alter_validators_add_error_messages','2024-09-18 05:12:02.422971'),(13,'auth','0008_alter_user_username_max_length','2024-09-18 05:12:02.535255'),(14,'auth','0009_alter_user_last_name_max_length','2024-09-18 05:12:02.616360'),(15,'auth','0010_alter_group_name_max_length','2024-09-18 05:12:02.640386'),(16,'auth','0011_update_proxy_permissions','2024-09-18 05:12:02.648744'),(17,'auth','0012_alter_user_first_name_max_length','2024-09-18 05:12:02.720704'),(18,'sessions','0001_initial','2024-09-18 05:12:02.752975'),(19,'members','0001_initial','2024-09-19 10:43:15.993275'),(20,'members','0002_remove_student_roll_number_student_address_and_more','2024-09-25 16:58:17.189483'),(21,'members','0003_alter_student_roll_no','2024-09-25 18:04:39.848137'),(23,'members','0004_remove_student_id_alter_student_roll_no_and_more','2024-09-26 05:39:54.655067'),(24,'members','0005_student_batch','2024-10-02 11:37:43.232496'),(25,'members','0006_student_insta_id','2024-10-02 12:02:31.478749'),(26,'members','0007_student_linkedin_id','2024-10-02 12:37:00.950058'),(27,'members','0008_student_github_id','2024-10-02 14:13:56.624886');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,6 +309,9 @@ CREATE TABLE `members_student` (
   `address` text,
   `contact_no` varchar(15) DEFAULT NULL,
   `batch` varchar(255) DEFAULT NULL,
+  `insta_id` varchar(200) DEFAULT NULL,
+  `linkedin_id` varchar(100) DEFAULT NULL,
+  `github_id` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`roll_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -319,7 +322,7 @@ CREATE TABLE `members_student` (
 
 LOCK TABLES `members_student` WRITE;
 /*!40000 ALTER TABLE `members_student` DISABLE KEYS */;
-INSERT INTO `members_student` VALUES ('22z221','Gokul G','BE CSE','Cuddalore','+91 6369918149','2022-2026'),('22z222','Hariharan D','BE CSE','Coimbatore','+91 9500990965','2022-2026'),('22z223','Harish K','BE CSE','Nagercoil','+91 6369950903','2022-2026'),('22z239','Mohammed Muzammil J','BE CSE','Trichy','+91 8807509671','2022-2026'),('22z245','Pranavji K','BE CSE','Chennai','+91 9150494945','2022-2026'),('22z247','Pratish Mithra J','BE CSE','Thoothukudi','+91 9159557666','2022-2026'),('22z249','Prithvin K C','BE CSE','Chennai','+91 8072566972','2022-2026');
+INSERT INTO `members_student` VALUES ('22z221','Gokul G','BE CSE','Cuddalore','+91 6369918149','2022-2026','https://www.instagram.com/___goku__l/','https://www.linkedin.com/in/gokul-g-6b7119249/','https://github.com/goku-xx'),('22z222','Hariharan D','BE CSE','Coimbatore','+91 9500990965','2022-2026',NULL,'https://linkedin.com/in/hariharan-devananth-17b8b6314/','https://github.com/Hariharanx30'),('22z223','Harish K','BE CSE','Nagercoil','+91 6369950903','2022-2026','https://www.instagram.com/k_harish_77/',NULL,'https://github.com/Harish04050604'),('22z230','John Doe','BE CSE','Coimbatore','+91 123xxxxxxx','2022-2026','','',''),('22z239','Mohammed Muzammil J','BE CSE','Trichy','+91 8807509671','2022-2026','https://www.instagram.com/mohamedmuzammil93/','https://www.linkedin.com/in/mohamed-muzammil-98740a27b/',NULL),('22z245','Pranavji K','BE CSE','Chennai','+91 9150494945','2022-2026','https://www.instagram.com/pranav_6305/','https://www.linkedin.com/in/pranavji-k-015538250/','https://github.com/Pranav6305'),('22z247','Pratish Mithra J','BE CSE','Thoothukudi','+91 9159557666','2022-2026','https://www.instagram.com/_pratish_22/',NULL,'https://github.com/pratish2225'),('22z249','Prithvin K C','BE CSE','Chennai','+91 8072566972','2022-2026','https://www.instagram.com/prithvin_1807/',NULL,'https://github.com/Prithvin10');
 /*!40000 ALTER TABLE `members_student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-30 19:01:19
+-- Dump completed on 2024-10-03  9:43:05
