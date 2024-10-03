@@ -14,7 +14,7 @@
       }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #28758a;
+        background-color: #003366;
         margin: 0;
         padding: 0;
         min-height: 100vh;
@@ -25,26 +25,28 @@
 
       .container {
         width: 80%;
-        max-width: 800px;
+        max-width: 500px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 20px;
         text-align: center;
+        max-height: fit-content;
       }
 
       .header {
-        background-color: #353535;
+        background-color: #013a5b;
         color: #fff;
-        padding: 25px 30px; /* Increased padding for better visibility */
-        border-radius: 10px 8px 0 0;
+        padding: 25px 30px;
+        border-radius: 10px 9px 0 0;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
       }
 
       .header img {
-        height: 70px;
+        height: 60px;
+        margin-right: 10px;
       }
 
       .header h1 {
@@ -52,10 +54,36 @@
         margin: 0;
       }
 
+      /* Welcome message styling (below header) */
+      .welcome-message {
+        background-color: #6dbcf5;
+        padding: 8px;
+        margin-top: 20px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .welcome-message h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        animation: scrollText 10s linear infinite;
+      }
+
+      @keyframes scrollText {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
       .admin-profile {
         display: flex;
         align-items: center;
-        justify-content: center; /* Center the profile */
+        justify-content: center;
+        margin-top: 10px;
         margin-bottom: 20px;
       }
 
@@ -71,76 +99,42 @@
         font-size: 1.2rem;
       }
 
-      .search-section {
+      .section {
         margin-bottom: 20px;
+        text-align: left;
       }
 
-      .search-section h4 {
-        margin: 0 0 10px 0;
-        font-size: medium;
+      .section h4 {
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: left;
       }
 
+      /* Add margin between label and select/input */
       select,
       input[type="text"] {
         width: 100%;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 4px;
-        margin-bottom: 10px;
-        font-size: 16px; /* Increased font size for better readability */
-      }
-
-      button[type="submit"] {
-        background-color: #54288a;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 16px; /* Increased font size for better readability */
-      }
-
-      button[type="submit"]:hover {
-        background-color: #e9e9f0;
-      }
-
-      .section {
+        margin-top: 8px; /* Added margin-top for spacing */
         margin-bottom: 20px;
+        font-size: 16px;
       }
 
-      .section h4 {
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-
-      .section select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        font-size: 16px; /* Increased font size for better readability */
-      }
-
-      .section input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        font-size: 16px; /* Increased font size for better readability */
-      }
-
+      /* Center the search icon button */
       .section button[type="submit"] {
-        background-color: #54288a;
+        background-color: #7f9fb8;
         color: white;
-        padding: 10px 20px;
+        padding: 10px 30px;
         border: none;
-        border-radius: 20px;
+        border-radius: 60px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        font-size: 16px; /* Increased font size for better readability */
+        font-size: 16px;
+        display: block;
+        margin: 0 auto; /* Center the button */
       }
 
       .section button[type="submit"]:hover {
@@ -154,14 +148,14 @@
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
           alt="PSG College of Technology Logo"
-          style="margin-left: -150px"
+          style="height: 60px; margin-right: 10px"
         />
         <h1>PSG College of Technology</h1>
       </div>
 
-      <center>
-        <h2 style="margin-bottom: 20px">Welcome to InfoZone</h2>
-      </center>
+      <div class="welcome-message">
+        <h2>Welcome to InfoZone!</h2>
+      </div>
 
       <div class="admin-profile">
         <img
@@ -176,12 +170,8 @@
       <form method="GET" action="{% url 'student_list' %}">
         <div class="section">
           <h4>Batch</h4>
-          <select
-            id="batch"
-            name="batch"
-            style="padding: 10px; border-radius: 5px; margin-top: 7px"
-          >
-            <option value="">select</option>
+          <select id="batch" name="batch">
+            <option value="">Select</option>
             <option value="2022-2026">2022-2026</option>
             <option value="2023-2027">2023-2027</option>
             <option value="2024-2028">2024-2028</option>
@@ -191,12 +181,8 @@
 
         <div class="section">
           <h4>Department</h4>
-          <select
-            id="department"
-            name="department"
-            style="padding: 10px; border-radius: 5px; margin-top: 5px"
-          >
-            <option value="">select</option>
+          <select id="department" name="department" style="padding: 15px">
+            <option value="">Select</option>
             <option value="BE CSE">BE CSE</option>
             <option value="BTECH IT">BTECH IT</option>
             <option value="BE ECE">BE ECE</option>

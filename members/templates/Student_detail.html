@@ -12,13 +12,32 @@
         margin: 0;
         padding: 0;
         background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header {
+        background-color: #2e5975;
+        padding: 0;
+        text-align: center;
+      }
+      .header img {
+        max-width: 50px;
+        vertical-align: middle;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        display: inline-block;
+        margin-left: 30px;
+        color: #f4f4f4;
       }
 
       .container {
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        min-height: 90vh;
+        align-items: center;
+        flex: 1;
       }
 
       .card {
@@ -28,7 +47,6 @@
         overflow: hidden;
         width: 500px;
         margin-top: 20px;
-        margin-left: 100px;
       }
 
       .card-header {
@@ -68,15 +86,6 @@
         background-color: #f0f0f0;
       }
 
-      .card-body p {
-        margin: 5px 0;
-        font-size: 20px;
-      }
-
-      .card-body strong {
-        font-weight: bold;
-      }
-
       .social-links {
         margin-top: 20px;
         text-align: center;
@@ -93,12 +102,12 @@
         color: #23527c;
       }
 
+      /* Back button styling */
       .back-button {
-        display: block;
-        margin-top: 590px; /* Adjusted for better placement */
-        margin-left: 25px;
-        padding: 10px 30px;
-        width: 200px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
         background-color: #3498db;
         color: #fff;
         border: none;
@@ -106,27 +115,17 @@
         font-size: 16px;
         cursor: pointer;
         text-decoration: none;
-        text-align: center;
+        display: flex;
+        align-items: center;
       }
 
-      .header {
-        background-color: #2e5975;
-        padding: 0px;
-        text-align: center;
-      }
-      .header img {
-        max-width: 50px;
-        vertical-align: middle;
-        margin-bottom: 10px;
-      }
-      .header h1 {
-        display: inline-block;
-        margin-left: 30px;
-        color: #f4f4f4; /* Adjusted for better visibility */
+      .back-button i {
+        margin-right: 10px;
       }
     </style>
   </head>
   <body>
+    <!-- Header section -->
     <div class="header">
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
@@ -134,6 +133,13 @@
       />
       <h1>PSG College of Technology</h1>
     </div>
+
+    <!-- Back to Student List Button (top left corner) -->
+    <a href="#" onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to Student List
+    </a>
+
+    <!-- Student Information (centered) -->
     <div class="container">
       <div class="card">
         <div class="card-header">
@@ -170,17 +176,6 @@
               <td>{{ student.contact_no }}</td>
             </tr>
           </table>
-          <!-- <div class="social-links">
-            <a href="{{ student.linkedin_id }}" target="_blank"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a href="{{ student.insta_id }}" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="{{ student.github_id }}" target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-          </div> -->
           <div class="social-links">
             {% if student.linkedin_id %}
                 <a href="{{ student.linkedin_id }}" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -191,12 +186,9 @@
             {% if student.github_id %}
                 <a href="{{ student.github_id }}" target="_blank"><i class="fab fa-github"></i></a>
             {% endif %}
-        </div>
+          </div>
         </div>
       </div>
-      <a href="#" onclick="history.back()" class="back-button"
-        >Back to Student List</a
-      >
     </div>
   </body>
 </html>
