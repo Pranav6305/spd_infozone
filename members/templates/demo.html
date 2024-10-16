@@ -1,30 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSG College Of Technology - INFOZONE</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #28758a;
+      }
+      .container {
+        max-width: 400px;
+        margin: 45px auto;
+        padding: 20px;
+        border: 15px solid #54288a;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
   <body>
-    <div>
-      <center>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
-          alt="psgtech_logo"
-          style="margin-top: 100px"
-        />
-        <h1>PSG College Of Technology</h1>
-        <h1>INFOZONE</h1>
-        <form>
-          <table>
-            <tr>
-              <td>Username</td>
-              <td><input type="type" placeholder="" /></td>
-            </tr>
-            <tr>
-              <td>Password</td>
-              <td><input type="password" placeholder="" /></td>
-            </tr>
-          </table>
-        </form>
+    <div class="container">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4ULH12GyTYs8Surw_jxuT_EqI85wbFjl4wId4icEydRmW5OH1My_52Zfcair8pyOTXE&usqp=CAU"
+        alt="psgtech_logo"
+        style="margin-top: 30px"
+      />
+      <h1 style="font-size: 20px">PSG College Of Technology</h1>
+      <h1 style="font-size: 20px">INFOZONE</h1>
+      <form onsubmit="return validateCredentials();">
+        <br /><br />
+        <table>
+          <tr>
+            <th><label for="username">Username</label></th>
+            <td><input type="text" id="username" placeholder="" /></td>
+          </tr>
+          <tr>
+            <th><label for="password">Password</label></th>
+            <td><input type="password" id="password" placeholder="" /></td>
+          </tr>
+        </table>
         <br />
-        <button onclick="alert('Hello')">Login</button>
-      </center>
+        <br />
+        <br />
+        <button type="submit">Login</button>
+      </form>
     </div>
+
+    <script>
+      function validateCredentials() {
+        const username = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
+
+        if (username === "admin" && password === "123") {
+          window.location.href = "{% url 'batch' %}";
+        } else {
+          alert("Invalid username or password...");
+        }
+
+        return false;
+      }
+    </script>
   </body>
 </html>

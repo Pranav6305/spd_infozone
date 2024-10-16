@@ -1,0 +1,54 @@
+How to implement this project??
+
+
+setup Django: 
+
+-> refer w3schools website for creating a Django project [if u are creating a new project]
+
+
+to clone this project:
+
+-> use git clone <repo url> command in your vscode terminal 
+
+
+to get database access:
+
+-> modify the DATABASES section present in settings.py for fields such as database,username,password.
+
+-> This project is implemented using MySQL workbench
+
+
+In this project, we have connected excel sheet with MySQL workbench where when we make any changes in excel sheet it will get reflected in the database.
+
+to get excel sheet access:
+
+-> name the excel sheet as update_data with excel extension.
+
+-> keep the excel sheet in onedrive so that changes gets updated.
+
+
+to implement pandas code to keep the excel sheet updated:
+
+-> find the path of python version "find the path of pandas code file[update_db.py]"
+eg:C:\Python312\python "C:\Users\Pranavji\OneDrive\Documents\College_Coding\SPD\update_db.py"
+
+-> run this command in command prompt to update the excel sheet present in onedrive.
+
+
+After all this implementation, to run this project:
+
+python manage.py runserver
+
+
+Points to Note:
+
+-> if you make any modifications and if it is not got updated, then run these commands:
+
+python manage.py makemigrations
+python manage.py migrate
+
+-> if you face any error regarding adding or removing attributes, then 
+
+fake the migration [get the command from chatGPT]
+
+-> it is recommended to use GitHub repo for all projects as it's convenient to undo changes if necessary and to have different versions of the project. align this documentation. 
