@@ -40,7 +40,7 @@ After all this implementation, to run this project:
 python manage.py runserver
 
 
-Points to Note:
+Point to Note:
 
 -> if you make any modifications and if it is not got updated, then run these commands:
 
@@ -51,4 +51,6 @@ python manage.py migrate
 
 fake the migration [get the command from chatGPT]
 
--> it is recommended to use GitHub repo for all projects as it's convenient to undo changes if necessary and to have different versions of the project. align this documentation. 
+-> it is recommended to use GitHub repo for all projects as it's convenient to undo changes if necessary and to have different versions of the project.
+
+
