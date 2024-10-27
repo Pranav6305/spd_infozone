@@ -54,7 +54,6 @@
         margin: 0;
       }
 
-      /* Welcome message styling (below header) */
       .welcome-message {
         background-color: #6dbcf5;
         padding: 8px;
@@ -111,19 +110,17 @@
         text-align: left;
       }
 
-      /* Add margin between label and select/input */
       select,
       input[type="text"] {
         width: 100%;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 4px;
-        margin-top: 8px; /* Added margin-top for spacing */
+        margin-top: 8px;
         margin-bottom: 20px;
         font-size: 16px;
       }
 
-      /* Center the search icon button */
       .section button[type="submit"] {
         background-color: #7f9fb8;
         color: white;
@@ -134,11 +131,23 @@
         transition: background-color 0.3s ease;
         font-size: 16px;
         display: block;
-        margin: 0 auto; /* Center the button */
+        margin: 0 auto;
       }
 
       .section button[type="submit"]:hover {
         background-color: #e9e9f0;
+      }
+
+      .error {
+        border-color: #ff0000;
+      }
+
+      .error-message {
+        color: #ff0000;
+        font-size: 14px;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        display: none;
       }
     </style>
   </head>
@@ -167,7 +176,12 @@
         </div>
       </div>
 
-      <form method="GET" action="{% url 'student_list' %}">
+      <form
+        id="studentForm"
+        method="GET"
+        action="{% url 'student_list' %}"
+        onsubmit="return validateForm()"
+      >
         <div class="section">
           <h4>Batch</h4>
           <select id="batch" name="batch">
@@ -177,6 +191,7 @@
             <option value="2024-2028">2024-2028</option>
             <option value="2025-2029">2025-2029</option>
           </select>
+          <div class="error-message" id="batchError">Please select a batch</div>
         </div>
 
         <div class="section">
@@ -198,6 +213,9 @@
             <option value="BE EEE SW">BE EEE SW</option>
             <option value="BE MECH SW">BE MECH SW</option>
           </select>
+          <div class="error-message" id="departmentError">
+            Please select a department
+          </div>
         </div>
 
         <div class="section">
@@ -208,9 +226,63 @@
             name="rollno"
             placeholder="Search by Roll No."
           />
+          <div class="error-message" id="rollnoError">
+            Please enter a roll number
+          </div>
           <button type="submit">&#128269;</button>
         </div>
       </form>
     </div>
+
+    <script>
+      function validateForm() {
+        const batch = document.getElementById("batch").value;
+        const department = document.getElementById("department").value;
+        const rollno = document.getElementById("rollno").value.trim();
+
+        let isValid = true;
+
+        resetErrors();
+
+        if (!batch) {
+          showError("batch");
+          isValid = false;
+        }
+
+        if (!department) {
+          showError("department");
+          isValid = false;
+        }
+
+        if (!rollno) {
+          showError("rollno");
+          isValid = false;
+        }
+
+        if (!isValid) {
+          alert("Please fill out all the required fields");
+          return false;
+        }
+
+        return true;
+      }
+
+      function showError(fieldId) {
+        const field = document.getElementById(fieldId);
+        const errorMessage = document.getElementById(fieldId + "Error");
+        field.classList.add("error");
+        errorMessage.style.display = "block";
+      }
+
+      function resetErrors() {
+        const fields = ["batch", "department", "rollno"];
+        fields.forEach((fieldId) => {
+          const field = document.getElementById(fieldId);
+          const errorMessage = document.getElementById(fieldId + "Error");
+          field.classList.remove("error");
+          errorMessage.style.display = "none";
+        });
+      }
+    </script>
   </body>
 </html>

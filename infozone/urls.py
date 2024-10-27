@@ -20,8 +20,8 @@ from members import views
 from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
-    path('', views.home_view, name='home'),        # Root URL
-    path('batch/', views.batch_view, name='batch'),  # Batch view
+    path('', views.home_view, name='home'),        
+    path('batch/', views.batch_view, name='batch'), 
     path('student/', views.student_list_view, name='student'),
     path('admin/', admin.site.urls),
     path('', include('members.urls')),

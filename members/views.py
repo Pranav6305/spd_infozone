@@ -12,15 +12,12 @@ def batch_view(request):
     return render(request, 'batch.html')
 
 def student_list_view(request):
-    # Get the filters from the request query parameters
     batch = request.GET.get('batch')
     department = request.GET.get('department')
     rollno = request.GET.get('rollno')
 
-    # Initialize the queryset
     students = Student.objects.all()
 
-    # Apply filters if provided
     if batch:
         students = students.filter(batch=batch)
     if department:
