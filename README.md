@@ -19,3 +19,7 @@ SPD InfoZone is built to save time, reduce manual work, and make student data ac
 
 
 ![image](https://github.com/user-attachments/assets/99cf7899-c63c-4395-9f25-5aba3d356f55)
+![image](https://github.com/user-attachments/assets/6c52e624-c52e-4d02-8f87-db5aad4f24ef)
+![image](https://github.com/user-attachments/assets/57e00fe9-3fd1-416f-8b8c-59efb8213740)
+![image](https://github.com/user-attachments/assets/878ce9b7-fc3f-453f-ad29-886a06064cce)
+
