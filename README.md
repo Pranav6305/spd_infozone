@@ -1,4 +1,4 @@
-#SPD InfoZone – College Student Info Web App
+# SPD InfoZone – College Student Info Web App
 
 SPD InfoZone is a simple and efficient web application built to help college staff manage student details with ease. Developed using Django, plain JavaScript, and MySQL Workbench, this system streamlines the process of viewing and updating student information.
 
